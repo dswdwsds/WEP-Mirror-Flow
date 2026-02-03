@@ -21,26 +21,37 @@
         <div class="logo">
             Mirror<span>Flow</span>
         </div>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">الرئيسية</a></li>
             <li><a href="index.html#features">المميزات</a></li>
             <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+            <li class="mobile-only-btn"><a
+                    href="https://www.mediafire.com/file/j5ersa6fs6ufvyy/Mirror.Flow.Pro.rar/file"
+                    class="btn btn-primary">تحميل الآن</a></li>
         </ul>
-        <a href="https://2cm.es/1iW2i" class="btn btn-primary" style="padding: 10px 24px;">تحميل الآن</a>
+        <div class="header-actions">
+            <a href="https://www.mediafire.com/file/j5ersa6fs6ufvyy/Mirror.Flow.Pro.rar/file"
+                class="btn btn-primary nav-btn desktop-only" style="padding: 10px 24px;">تحميل الآن</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </header>
 
-    <main class="updates-section" style="padding-top: 60px;">
-        <div class="section-head" style="text-align: center; margin-bottom: 80px;">
+    <main class="update-page-main">
+        <div class="update-header">
             <div class="badge">تاريخ التحديثات</div>
-            <h1 style="font-size: 54px; margin-top: 20px;">🚀 قائمة التحديثات الجديدة</h1>
+            <h1>🚀 قائمة التحديثات الجديدة</h1>
             <p>سجل كامل لجميع المميزات والإصلاحات التي تمت إضافتها للبرنامج.</p>
         </div>
 
         <div class="faq-container" style="max-width: 1000px;">
             <!-- Version 1.0.0 -->
-            <div style="margin-bottom: 60px; border-right: 4px solid var(--primary); padding-right: 30px;">
-                <h2 style="color: #fff; margin-bottom: 20px;">إصدار v1.0.0 (المستقر) <span
-                        style="font-size: 14px; color: var(--text-dim);"> - فبراير 2026</span></h2>
+            <div class="version-section">
+                <h2 class="version-title">إصدار v1.0.0 (المستقر) <span style="font-size: 14px; color: var(--text-dim);">
+                        - فبراير 2026</span></h2>
 
                 <div class="update-grid" style="margin-top: 20px;">
                     <div class="update-card">
@@ -102,6 +113,17 @@
         <div class="logo">Mirror<span>Flow</span></div>
         <p>© 2026 Mirror Flow - جميع الحقوق محفوظة</p>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>

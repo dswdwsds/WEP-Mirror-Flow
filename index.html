@@ -24,15 +24,26 @@
         <div class="logo">
             Mirror<span>Flow</span>
         </div>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
             <li><a href="#features">المميزات</a></li>
             <li><a href="#about">تخطيط الأزرار</a></li>
             <li><a href="#gallery">معرض الصور</a></li>
             <li><a href="#comparison">لماذا نحن؟</a></li>
             <li><a href="updates.html">التحديثات</a></li>
             <li><a href="#faq">الأسئلة الشائعة</a></li>
+            <li class="mobile-only-btn"><a
+                    href="https://www.mediafire.com/file/j5ersa6fs6ufvyy/Mirror.Flow.Pro.rar/file"
+                    class="btn btn-primary">ابدأ الآن</a></li>
         </ul>
-        <a href="https://2cm.es/1iW2i" class="btn btn-primary" style="padding: 10px 24px;">ابدأ الآن</a>
+        <div class="header-actions">
+            <a href="https://www.mediafire.com/file/j5ersa6fs6ufvyy/Mirror.Flow.Pro.rar/file"
+                class="btn btn-primary nav-btn desktop-only">ابدأ الآن</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -42,7 +53,8 @@
                 <p>حول هاتفك إلى منصة ألعاب احترافية على الحاسوب. استمتع بدقة الـ Aim Mode ودعم الدرعات الكامل مع Mirror
                     Flow.</p>
                 <div class="btn-group">
-                    <a href="https://2cm.es/1iW2i" class="btn btn-primary pulse-glow">تحميل نسخة الويندوز (PC)</a>
+                    <a href="https://www.mediafire.com/file/j5ersa6fs6ufvyy/Mirror.Flow.Pro.rar/file"
+                        class="btn btn-primary pulse-glow">تحميل نسخة الويندوز (PC)</a>
                     <a href="#usage" class="btn btn-secondary">شرح الاستخدام</a>
                 </div>
             </div>
@@ -293,14 +305,41 @@
         </div>
     </footer>
 
+    <!-- Image Modal for Lightbox -->
+    <div id="image-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-content" id="modal-img">
+            <div id="modal-caption"></div>
+        </div>
+    </div>
+
     <script>
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu after clicking
+                    document.getElementById('nav-links').classList.remove('active');
+                    document.getElementById('mobile-menu').classList.remove('active');
+                }
             });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
 
         // FAQ Toggle
@@ -311,6 +350,39 @@
                 span.textContent = item.classList.contains('active') ? '-' : '+';
             });
         });
+
+        // Image Lightbox Logic
+        const modal = document.getElementById('image-modal');
+        const modalImg = document.getElementById('modal-img');
+        const captionText = document.getElementById('modal-caption');
+        const closeBtn = document.querySelector('.modal-close');
+
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const img = this.querySelector('img');
+                const cap = this.querySelector('.gallery-cap');
+
+                modal.style.display = "flex";
+                modalImg.src = img.src;
+                captionText.innerHTML = cap.innerHTML;
+
+                // Block scroll when modal is open
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close Modal
+        function closeModal() {
+            modal.style.display = "none";
+            document.body.style.overflow = 'auto';
+        }
+
+        closeBtn.onclick = closeModal;
+        modal.onclick = function (e) {
+            if (e.target === modal || e.target.classList.contains('modal-content-wrapper')) {
+                closeModal();
+            }
+        }
     </script>
 </body>
 
