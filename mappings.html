@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأجهزة المدعومة - Mirror Flow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="bg-blobs">
+        <div class="blob"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            Mirror<span>Flow</span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="index.html#features">المميزات</a></li>
+            <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+            <li><a href="updates.html">التحديثات</a></li>
+            <li><a href="mappings.html">الأجهزة المدعومة</a></li>
+            <li class="mobile-only-btn"><a
+                    href="https://github.com/dswdwsds/WEP-Mirror-Flow/releases/download/1.0.1/Mirror.Flow.Pro.rar"
+                    class="btn btn-primary">تحميل الآن</a></li>
+        </ul>
+        <div class="header-actions">
+            <a href="https://github.com/dswdwsds/WEP-Mirror-Flow/releases/download/1.0.1/Mirror.Flow.Pro.rar"
+                class="btn btn-primary nav-btn desktop-only" style="padding: 10px 24px;">تحميل الآن</a>
+            <a href="mappings.html" class="btn btn-secondary nav-btn desktop-only" style="margin-inline-start: 8px;">تخطيط الأجهزة</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="update-page-main">
+        <div class="update-header">
+            <div class="badge">تخطيط الأجهزة</div>
+            <h1>🎮 ملفات تخطيط أزرار</h1>
+            <p>ملفات جاهزة لأزرار التحكم يمكنك تحميلها واستخدامها داخل البرنامج.</p>
+        </div>
+
+        <div class="faq-container" style="max-width: 1000px;">
+            <div class="version-section">
+                <h2 class="version-title">ملفات المابنج الجاهزة</h2>
+                <div class="update-grid" style="margin-top: 20px;">
+                    <div class="update-card">
+                        <h3>📦 ملف مابنج PUBG Mobile</h3>
+                        <ul class="update-list">
+                            <li>ملف مخصص لمفاتيح التحكم الخاصة بلعبة PUBG Mobile.</li>
+                            <li>ملفات تخطيط أزرار جاهزة.</li>
+                        </ul>
+                        <div style="margin-top: 12px;">
+                            <a href="https://github.com/dswdwsds/WEP-Mirror-Flow/releases/download/1.0.1/mappings_export.zip"
+                                class="btn btn-primary">تحميل ملف mappings_export.zip</a>
+                        </div>
+                    </div>
+
+                    <div class="update-card">
+                        <h3>🧩 طريقة الاستخدام</h3>
+                        <ul class="update-list">
+                            <li>حمّل ملف المابنج.</li>
+                            <li>افتح البرنامج ثم ادخل إلى الإعدادات.</li>
+                            <li>من صفحة المابنج اختر استيراد الملف.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 80px;">
+            <a href="index.html" class="btn btn-secondary">العودة للرئيسية</a>
+        </div>
+    </main>
+
+    <footer style="margin-top: 100px;">
+        <div class="logo">Mirror<span>Flow</span></div>
+        <p>© 2026 Mirror Flow - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
